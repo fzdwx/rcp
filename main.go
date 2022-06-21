@@ -1,31 +1,18 @@
 package main
 
-import (
-	"github.com/go-vgo/robotgo"
-	"image"
-	"image/png"
-	"os"
-)
+import "github.com/fzdwx/rcp/ro"
 
 func main() {
-	//capture, err := screenshot.Capture(0, 0, 1900, 800)
-	//robotgo.
-	//if err != nil {
-	//	fmt.Println(err)
-	//}
-	//save(capture, "screen.png")
-
-	bitmap := robotgo.CaptureScreen(0, 0, 1920, 800)
-
-	robotgo.Save(robotgo.ToImage(bitmap), "test.png")
-}
-
-// save *image.RGBA to filePath with PNG format.
-func save(img *image.RGBA, filePath string) {
-	file, err := os.Create(filePath)
+	//fmt.Println(robotgo.GetMainDPI())
+	//
+	//fmt.Println(screenshot.NumActiveDisplays())
+	//
+	//bitMap := ro.Cap(0, 0, 1920, 1080)
+	//bitMap.SaveToPNG("qwe.png")
+	all, err := ro.CapMain()
 	if err != nil {
 		panic(err)
 	}
-	defer file.Close()
-	png.Encode(file, img)
+
+	all.SaveToPNG("hello.png")
 }

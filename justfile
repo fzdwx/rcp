@@ -1,13 +1,13 @@
 #!/usr/bin/env just --justfile
+env := "w"
 
-prefix := "GOOS=windows GOARCH=amd64 CGO_ENABLED=1"
-
-build:
-    {{prefix}}  go build .
+prefix := if env == "w" { "GOOS=windows GOARCH=amd64 CGO_ENABLED=1" } else { "GOOS=linux GOARCH=amd64" }
 
 run:
     {{prefix}}  go run .
-    #GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ go build -x ./
+
+build:
+    {{prefix}}  go build .
 
 test:
     {{prefix}} go test ./test

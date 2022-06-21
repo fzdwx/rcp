@@ -3,7 +3,6 @@ package display
 import (
 	"bytes"
 	"github.com/disintegration/imaging"
-	"github.com/go-vgo/robotgo"
 	"image"
 )
 
@@ -16,9 +15,20 @@ func newImg(img image.Image) *Img {
 	return &Img{source: img}
 }
 
-// SaveToPNG save to png
-func (i Img) SaveToPNG(path string) error {
-	return robotgo.SavePng(i.source, path)
+// Save saves the image to file with the specified filename.
+// The format is determined from the filename extension:
+// "jpg" (or "jpeg"), "png", "gif", "tif" (or "tiff") and "bmp" are supported.
+//
+// Examples:
+//
+//	// Save the image as PNG.
+//	err := imaging.Save(img, "out.png")
+//
+//	// Save the image as JPEG.
+//	err := imaging.Save(img, "out.jpg")
+//
+func (i Img) Save(path string) error {
+	return imaging.Save(i.source, path)
 }
 
 // Encode  Img to bytes with png format

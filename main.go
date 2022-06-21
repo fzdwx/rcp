@@ -15,7 +15,7 @@ func main() {
 	//	panic(err)
 	//}
 	//
-	//all.Resize().SaveToPNG("hello.png")
+	//all.Resize().Save("hello.png")
 	//robotgo.Click("left")
 	//key.Right.Do()
 }

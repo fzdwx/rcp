@@ -1,18 +1,21 @@
 package main
 
-import "github.com/fzdwx/rcp/ro"
+import "github.com/disintegration/imaging"
 
 func main() {
-	//fmt.Println(robotgo.GetMainDPI())
-	//
-	//fmt.Println(screenshot.NumActiveDisplays())
-	//
-	//bitMap := ro.Cap(0, 0, 1920, 1080)
-	//bitMap.SaveToPNG("qwe.png")
-	all, err := ro.CapMain()
-	if err != nil {
-		panic(err)
-	}
 
-	all.SaveToPNG("hello.png")
+	image, _ := imaging.Open("hello.png")
+
+	resize := imaging.Resize(image, image.Bounds().Dx()*4, 0, imaging.Lanczos)
+	imaging.Save(resize, "hello_resize.png")
+
+	//time.Sleep(3 * time.Second)
+	//all, err := display.CapMain()
+	//if err != nil {
+	//	panic(err)
+	//}
+	//
+	//all.Resize().SaveToPNG("hello.png")
+	//robotgo.Click("left")
+	//key.Right.Do()
 }

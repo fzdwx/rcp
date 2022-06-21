@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394
+	github.com/corona10/goimagehash v1.1.0
 	github.com/go-vgo/robotgo v1.0.0-beta5.2
 	github.com/kbinani/screenshot v0.0.0-20210720154843-7d3a670d8329
 	github.com/robotn/gohook v0.40.0
@@ -11,11 +12,13 @@ require (
 )
 
 require (
+	github.com/disintegration/imaging v1.6.2 // indirect
 	github.com/gen2brain/shm v0.0.0-20200228170931-49f9650110c5 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/jezek/xgb v0.0.0-20210312150743-0e0f116e1240 // indirect
 	github.com/lufia/plan9stats v0.0.0-20220517141722-cf486979b281 // indirect
 	github.com/lxn/win v0.0.0-20210218163916-a377121e959e // indirect
+	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
 	github.com/otiai10/gosseract v2.2.1+incompatible // indirect
 	github.com/power-devops/perfstat v0.0.0-20220216144756-c35f1ee13d7c // indirect
 	github.com/robotn/xgb v0.0.0-20190912153532-2cb92d044934 // indirect

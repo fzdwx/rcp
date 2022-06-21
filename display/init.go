@@ -1,4 +1,4 @@
-package ro
+package display
 
 import "github.com/kbinani/screenshot"
 

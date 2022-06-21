@@ -1,12 +1,12 @@
-package ro
+package display
 
 import (
 	"github.com/kbinani/screenshot"
 	"image"
 )
 
-// All union all display
-func All() (*Img, error) {
+// CapAll union all display
+func CapAll() (*Img, error) {
 	if ActiveDisplayNums <= 0 {
 		return nil, DisplayNotFound
 	}

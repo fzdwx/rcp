@@ -8,7 +8,7 @@ import (
 // CapAll union all display
 func CapAll() (*Img, error) {
 	if ActiveDisplayNums <= 0 {
-		return nil, DisplayNotFound
+		return nil, NotFound
 	}
 	var all = image.Rect(0, 0, 0, 0)
 

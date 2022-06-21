@@ -1,6 +1,7 @@
 package display
 
 import (
+	"bytes"
 	"github.com/disintegration/imaging"
 	"github.com/go-vgo/robotgo"
 	"image"
@@ -16,12 +17,17 @@ func newImg(img image.Image) *Img {
 }
 
 // SaveToPNG save to png
-func (m Img) SaveToPNG(path string) error {
-	return robotgo.SavePng(m.source, path)
+func (i Img) SaveToPNG(path string) error {
+	return robotgo.SavePng(i.source, path)
 }
 
-func (m *Img) Resize() *Img {
-	i := m.source.Bounds().Dx() / 4
-	m.source = imaging.Resize(m.source, i, 0, imaging.Lanczos)
-	return m
+// Encode  Img to bytes with png format
+func (i Img) Encode() (*bytes.Buffer, error) {
+	buffer := bytes.NewBuffer([]byte{})
+	err := imaging.Encode(buffer, i.source, imaging.PNG)
+	if err != nil {
+		return nil, err
+	}
+
+	return buffer, nil
 }

@@ -1,6 +1,7 @@
 package display
 
 import (
+	"github.com/go-vgo/robotgo"
 	"github.com/kbinani/screenshot"
 	"image"
 )
@@ -32,6 +33,16 @@ func CapMain() (*Img, error) {
 // CapByDisPlay captures whole region of display Index'th display.
 func CapByDisPlay(displayIndex int) (*Img, error) {
 	img, err := screenshot.CaptureDisplay(displayIndex)
+	if err != nil {
+		return nil, err
+	}
+	return newImg(img), nil
+}
+
+// Capture custom crop
+func Capture(x, y, width, height int) (*Img, error) {
+	robotgo.CaptureGo()
+	img, err := screenshot.Capture(x, y, width, height)
 	if err != nil {
 		return nil, err
 	}

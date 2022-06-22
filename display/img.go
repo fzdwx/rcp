@@ -22,10 +22,10 @@ func newImg(img image.Image) *Img {
 // Examples:
 //
 //	// Save the image as PNG.
-//	err := imaging.Save(img, "out.png")
+//	err := Img.Save("out.png")
 //
 //	// Save the image as JPEG.
-//	err := imaging.Save(img, "out.jpg")
+//	err := Img.Save("out.jpg")
 //
 func (i Img) Save(path string) error {
 	return imaging.Save(i.source, path)
@@ -40,4 +40,10 @@ func (i Img) Encode() (*bytes.Buffer, error) {
 	}
 
 	return buffer, nil
+}
+
+func (i *Img) Resize() *Img {
+	i.source = imaging.Resize(i.source, i.source.Bounds().Dx(), 0, imaging.Lanczos)
+
+	return i
 }
